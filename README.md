@@ -38,13 +38,3 @@ frontend/ → React Frontend
 database/ → Oracle SQL Scripts
 
 docs/ → Project Documentation
-
-## Developed By
-Dikshitha
-
-B.Tech – Electronics and Computer Engineering
-
-Vignan's Institute of Information Technology (A)
-
-## Organization
-Bharat Heavy Electricals Limited (BHEL)
