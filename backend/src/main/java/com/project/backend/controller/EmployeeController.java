@@ -9,7 +9,7 @@ import com.project.backend.dto.EmployeeDTO;
 import java.util.List;
 
 @RestController
-@RequestMapping("/employees")
+@RequestMapping("/api/contracts")
 @CrossOrigin("*")
 public class EmployeeController {
 
@@ -24,9 +24,13 @@ public class EmployeeController {
 
     // Add employee
     @PostMapping
-    public Employee addEmployee(@RequestBody Employee employee) {
-        return employeeService.saveEmployee(employee);
+    public String addEmployee(@RequestBody Employee employee) {
+
+        employeeService.saveEmployee(employee);
+
+        return "Contract added successfully";
     }
+
     // Get employee by ID
     @GetMapping("/{id}")
     public Employee getEmployeeById(@PathVariable Long id) {
@@ -37,17 +41,19 @@ public class EmployeeController {
     @DeleteMapping("/{id}")
     public String deleteEmployee(@PathVariable Long id) {
         employeeService.deleteEmployee(id);
-        return "Employee deleted successfully";
+        return "Contract deleted successfully";
     }
 
     // Update employee
     @PutMapping("/{id}")
-    public Employee updateEmployee(@PathVariable Long id,
-                                   @RequestBody Employee employee) {
+    public String updateEmployee(@PathVariable Long id,
+                                 @RequestBody Employee employee) {
 
         employee.setId(id);
 
-        return employeeService.updateEmployee(employee);
+        employeeService.updateEmployee(employee);
+
+        return "Contract updated successfully";
     }
 
     // Get employee DTO by ID

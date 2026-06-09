@@ -49,7 +49,7 @@ public class EmployeeService {
                 employee.getId(),
                 employee.getEmployeeName(),
                 employee.getDepartment(),
-                employee.getContractorName(),
+                employee.getContractor(),
                 employee.getStatus()
         );
     }

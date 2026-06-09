@@ -2,6 +2,9 @@ package com.project.backend.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
@@ -9,10 +12,19 @@ import jakarta.persistence.Table;
 public class Employee {
 
     @Id
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "emp_seq"
+    )
+    @SequenceGenerator(
+            name = "emp_seq",
+            sequenceName = "EMP_SEQ",
+            allocationSize = 1
+    )
     private Long id;
     private String employeeName;
     private String woNumber;
-    private String contractorName;
+    private String contractor;
     private String department;
     private String effectiveFrom;
     private String effectiveTo;
@@ -24,14 +36,14 @@ public class Employee {
     }
 
     public Employee(Long id, String employeeName, String woNumber,
-                    String contractorName, String department,
+                    String contractor, String department,
                     String effectiveFrom, String effectiveTo,
                     String biometricId, String shift, String status) {
 
         this.id = id;
         this.employeeName = employeeName;
         this.woNumber = woNumber;
-        this.contractorName = contractorName;
+        this.contractor = contractor;
         this.department = department;
         this.effectiveFrom = effectiveFrom;
         this.effectiveTo = effectiveTo;
@@ -64,12 +76,12 @@ public class Employee {
         this.woNumber = woNumber;
     }
 
-    public String getContractorName() {
-        return contractorName;
+    public String getContractor() {
+        return contractor;
     }
 
-    public void setContractorName(String contractorName) {
-        this.contractorName = contractorName;
+    public void setContractor(String contractor) {
+        this.contractor = contractor;
     }
 
     public String getDepartment() {

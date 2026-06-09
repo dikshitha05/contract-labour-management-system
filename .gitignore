@@ -1,0 +1,12 @@
+.idea/
+backend/.idea/
+
+node_modules/
+
+out/
+
+backend/target/
+
+.vscode/
+
+*.log
